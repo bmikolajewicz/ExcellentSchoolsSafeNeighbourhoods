@@ -1,337 +1,101 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:x="urn:schemas-microsoft-com:office:excel"
-xmlns="http://www.w3.org/TR/REC-html40">
-
-<head>
-<meta name="Excel Workbook Frameset">
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Excel.Sheet>
-<meta name=Generator content="Microsoft Excel 12">
-<link rel=File-List href="SecSchools_files/filelist.xml">
-<![if !supportTabStrip]>
-<link id="shLink" href="SecSchools_files/sheet001.htm">
-<link id="shLink" href="SecSchools_files/sheet002.htm">
-<link id="shLink" href="SecSchools_files/sheet003.htm">
-
-<link id="shLink">
-
-<script language="JavaScript">
-<!--
- var c_lTabs=3;
-
- var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "Sheet2";
- c_rgszSh[1] = "Sheet4";
- c_rgszSh[2] = "Sheet5";
-
-
-
- var c_rgszClr=new Array(8);
- c_rgszClr[0]="window";
- c_rgszClr[1]="buttonface";
- c_rgszClr[2]="windowframe";
- c_rgszClr[3]="windowtext";
- c_rgszClr[4]="threedlightshadow";
- c_rgszClr[5]="threedhighlight";
- c_rgszClr[6]="threeddarkshadow";
- c_rgszClr[7]="threedshadow";
-
- var g_iShCur;
- var g_rglTabX=new Array(c_lTabs);
-
-function fnGetIEVer()
-{
- var ua=window.navigator.userAgent
- var msie=ua.indexOf("MSIE")
- if (msie>0 && window.navigator.platform=="Win32")
-  return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
- else
-  return 0;
-}
-
-function fnBuildFrameset()
-{
- var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[2].href+"\" name=\"frSheet\" noresize>"+
-  "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "</frameset></frameset><plaintext>";
-
- with (document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- fnBuildTabStrip();
-}
-
-function fnBuildTabStrip()
-{
- var szHTML=
-  "<html><head><style>.clScroll {font:8pt Courier New;color:"+c_rgszClr[6]+";cursor:default;line-height:10pt;}"+
-  ".clScroll2 {font:10pt Arial;color:"+c_rgszClr[6]+";cursor:default;line-height:11pt;}</style></head>"+
-  "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+" topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>"+
-  "<tr><td colspan=6 height=1 bgcolor="+c_rgszClr[2]+"></td></tr>"+
-  "<tr><td style=\"font:1pt\">&nbsp;<td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>"+
-  "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
-
- with (frames['frScroll'].document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- szHTML =
-  "<html><head>"+
-  "<style>A:link,A:visited,A:active {text-decoration:none;"+"color:"+c_rgszClr[3]+";}"+
-  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt Arial;padding-left:3px;padding-right:3px;text-align:center;}"+
-  ".clBorder {background:"+c_rgszClr[2]+";font:1pt;}"+
-  "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
-  " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
-
- var iCellCount=(c_lTabs+1)*2;
-
- var i;
- for (i=0;i<iCellCount;i+=2)
-  szHTML+="<col width=1><col>";
-
- var iRow;
- for (iRow=0;iRow<6;iRow++) {
-
-  szHTML+="<tr>";
-
-  if (iRow==5)
-   szHTML+="<td colspan="+iCellCount+"></td>";
-  else {
-   if (iRow==0) {
-    for(i=0;i<iCellCount;i++)
-     szHTML+="<td height=1 class=\"clBorder\"></td>";
-   } else if (iRow==1) {
-    for(i=0;i<c_lTabs;i++) {
-     szHTML+="<td height=1 nowrap class=\"clBorder\">&nbsp;</td>";
-     szHTML+=
-      "<td id=tdTab height=1 nowrap class=\"clTab\" onmouseover=\"parent.fnMouseOverTab("+i+");\" onmouseout=\"parent.fnMouseOutTab("+i+");\">"+
-      "<a href=\""+document.all.item("shLink")[i].href+"\" target=\"frSheet\" id=aTab>&nbsp;"+c_rgszSh[i]+"&nbsp;</a></td>";
-    }
-    szHTML+="<td id=tdTab height=1 nowrap class=\"clBorder\"><a id=aTab>&nbsp;</a></td><td width=100%></td>";
-   } else if (iRow==2) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1></td><td height=1 class=\"clBorder\"></td>";
-    szHTML+="<td height=1></td><td height=1></td>";
-   } else if (iRow==3) {
-    for (i=0;i<iCellCount;i++)
-     szHTML+="<td height=1></td>";
-   } else if (iRow==4) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1 width=1></td><td height=1></td>";
-    szHTML+="<td height=1 width=1></td><td></td>";
-   }
-  }
-  szHTML+="</tr>";
- }
-
- szHTML+="</table></body></html>";
- with (frames['frTabs'].document) {
-  open("text/html","replace");
-  charset=document.charset;
-  write(szHTML);
-  close();
- }
-}
-
-function fnInit()
-{
- g_rglTabX[0]=0;
- var i;
- for (i=1;i<=c_lTabs;i++)
-  with (frames['frTabs'].document.all.tbTabs.rows[1].cells[fnTabToCol(i-1)])
-   g_rglTabX[i]=offsetLeft+offsetWidth-6;
-}
-
-function fnTabToCol(iTab)
-{
- return 2*iTab+1;
-}
-
-function fnNextTab(fDir)
-{
- var iNextTab=-1;
- var i;
-
- with (frames['frTabs'].document.body) {
-  if (fDir==0) {
-   if (scrollLeft>0) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i-1;
-   }
-  } else {
-   if (g_rglTabX[c_lTabs]+6>offsetWidth+scrollLeft) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<=scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i;
-   }
-  }
- }
- return iNextTab;
-}
-
-function fnScrollTabs(fDir)
-{
- var iNextTab=fnNextTab(fDir);
-
- if (iNextTab>=0) {
-  frames['frTabs'].scroll(g_rglTabX[iNextTab],0);
-  return true;
- } else
-  return false;
-}
-
-function fnFastScrollTabs(fDir)
-{
- if (c_lTabs>16)
-  frames['frTabs'].scroll(g_rglTabX[fDir?c_lTabs-1:0],0);
- else
-  if (fnScrollTabs(fDir)>0) window.setTimeout("fnFastScrollTabs("+fDir+");",5);
-}
-
-function fnSetTabProps(iTab,fActive)
-{
- var iCol=fnTabToCol(iTab);
- var i;
-
- if (iTab>=0) {
-  with (frames['frTabs'].document.all) {
-   with (tbTabs) {
-    for (i=0;i<=4;i++) {
-     with (rows[i]) {
-      if (i==0)
-       cells[iCol].style.background=c_rgszClr[fActive?0:2];
-      else if (i>0 && i<4) {
-       if (fActive) {
-        cells[iCol-1].style.background=c_rgszClr[2];
-        cells[iCol].style.background=c_rgszClr[0];
-        cells[iCol+1].style.background=c_rgszClr[2];
-       } else {
-        if (i==1) {
-         cells[iCol-1].style.background=c_rgszClr[2];
-         cells[iCol].style.background=c_rgszClr[1];
-         cells[iCol+1].style.background=c_rgszClr[2];
-        } else {
-         cells[iCol-1].style.background=c_rgszClr[4];
-         cells[iCol].style.background=c_rgszClr[(i==2)?2:4];
-         cells[iCol+1].style.background=c_rgszClr[4];
-        }
-       }
-      } else
-       cells[iCol].style.background=c_rgszClr[fActive?2:4];
-     }
-    }
-   }
-   with (aTab[iTab].style) {
-    cursor=(fActive?"default":"hand");
-    color=c_rgszClr[3];
-   }
-  }
- }
-}
-
-function fnMouseOverScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[7];
-}
-
-function fnMouseOutScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[6];
-}
-
-function fnMouseOverTab(iTab)
-{
- if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
-   tdTab[iTab].style.background=c_rgszClr[5];
-  }
- }
-}
-
-function fnMouseOutTab(iTab)
-{
- if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
-
-  if ((!elTo) ||
-   (elFrom.tagName==elTo.tagName) ||
-   (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
-   (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {
-
-   if (iTab!=g_iShCur) {
-    with (frames['frTabs'].document.all) {
-     tdTab[iTab].style.background=c_rgszClr[1];
-    }
-   }
-  }
- }
-}
-
-function fnSetActiveSheet(iSh)
-{
- if (iSh!=g_iShCur) {
-  fnSetTabProps(g_iShCur,false);
-  fnSetTabProps(iSh,true);
-  g_iShCur=iSh;
- }
-}
-
- window.g_iIEVer=fnGetIEVer();
- if (window.g_iIEVer>=4)
-  fnBuildFrameset();
-//-->
-</script>
-<![endif]><!--[if gte mso 9]><xml>
- <x:ExcelWorkbook>
-  <x:ExcelWorksheets>
-   <x:ExcelWorksheet>
-    <x:Name>Sheet2</x:Name>
-    <x:WorksheetSource HRef="SecSchools_files/sheet001.htm"/>
-   </x:ExcelWorksheet>
-   <x:ExcelWorksheet>
-    <x:Name>Sheet4</x:Name>
-    <x:WorksheetSource HRef="SecSchools_files/sheet002.htm"/>
-   </x:ExcelWorksheet>
-   <x:ExcelWorksheet>
-    <x:Name>Sheet5</x:Name>
-    <x:WorksheetSource HRef="SecSchools_files/sheet003.htm"/>
-   </x:ExcelWorksheet>
-  </x:ExcelWorksheets>
-  <x:Stylesheet HRef="SecSchools_files/stylesheet.css"/>
-  <x:WindowHeight>7300</x:WindowHeight>
-  <x:WindowWidth>19100</x:WindowWidth>
-  <x:WindowTopX>80</x:WindowTopX>
-  <x:WindowTopY>100</x:WindowTopY>
-  <x:ActiveSheet>2</x:ActiveSheet>
-  <x:ProtectStructure>False</x:ProtectStructure>
-  <x:ProtectWindows>False</x:ProtectWindows>
- </x:ExcelWorkbook>
-</xml><![endif]-->
-</head>
-
-<frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="SecSchools_files/sheet003.htm" name="frSheet">
- <frame src="SecSchools_files/tabstrip.htm" name="frTabs" marginwidth=0 marginheight=0>
- <noframes>
-  <body>
-   <p>This page uses frames, but your browser doesn't support them.</p>
-  </body>
- </noframes>
-</frameset>
+<html>
+<table>
+<tr><th>Postal</th><th>Name</th></tr>
+<tr><td>M2H2G6</td><td>A Y Jackson</td></tr>
+<tr><td>M1S1R6</td><td>Agincourt</td></tr>
+<tr><td>M1V1S6</td><td>Albert Campbell</td></tr>
+<tr><td>M1N2G2</td><td>Birchmount Park</td></tr>
+<tr><td>M6H1M9</td><td>Bloor</td></tr>
+<tr><td>M3J1T9</td><td>C W Jefferys</td></tr>
+<tr><td>M1H2A2</td><td>Cedarbrae</td></tr>
+<tr><td>M9R3H1</td><td>Central</td></tr>
+<tr><td>M4J4B7</td><td>Danforth</td></tr>
+<tr><td>M1P2S7</td><td>David and Mary Thomson</td></tr>
+<tr><td>M3C1X6</td><td>Don Mills</td></tr>
+<tr><td>M3K1W3</td><td>Downsview</td></tr>
+<tr><td>M1W3G1</td><td>Dr Norman Bethune</td></tr>
+<tr><td>M2N3R7</td><td>Earl Haig</td></tr>
+<tr><td>M4C2V2</td><td>East York</td></tr>
+<tr><td>M9M2V9</td><td>Emery</td></tr>
+<tr><td>M9A3N5</td><td>Etobicoke</td></tr>
+<tr><td>M8Y2T1</td><td>Etobicoke-Arts</td></tr>
+<tr><td>M5N1B9</td><td>Forest Hill</td></tr>
+<tr><td>M6M3W5</td><td>George Harvey</td></tr>
+<tr><td>M3A3A6</td><td>George S Henry</td></tr>
+<tr><td>M2J3B6</td><td>Georges Vanier</td></tr>
+<tr><td>M6G1G5</td><td>Harbord</td></tr>
+<tr><td>M6P2V3</td><td>Humberside</td></tr>
+<tr><td>M4Y2G8</td><td>Jarvis</td></tr>
+<tr><td>M6A1B1</td><td>John Polanyi</td></tr>
+<tr><td>M9R1H4</td><td>Kipling</td></tr>
+<tr><td>M1W2K1</td><td>L'Amoreaux</td></tr>
+<tr><td>M8V3L1</td><td>Lakeshore</td></tr>
+<tr><td>M4R1S1</td><td>Lawrence Park</td></tr>
+<tr><td>M4G3N8</td><td>Leaside</td></tr>
+<tr><td>M1B2L2</td><td>Lester B Pearson</td></tr>
+<tr><td>M4E3E4</td><td>Malvern</td></tr>
+<tr><td>M3C1B3</td><td>Marc Garneau</td></tr>
+<tr><td>M9B3G7</td><td>Martingrove </td></tr>
+<tr><td>M4J1G6</td><td>Monarch Park</td></tr>
+<tr><td>M2M1V6</td><td>Newtonbrook</td></tr>
+<tr><td>M9V3B2</td><td>North Albion</td></tr>
+<tr><td>M4P1T7</td><td>North Toronto</td></tr>
+<tr><td>M4P2L5</td><td>Northern</td></tr>
+<tr><td>M2R1N6</td><td>Northview Heights</td></tr>
+<tr><td>M6E1A3</td><td>Oakwood</td></tr>
+<tr><td>M6K2Y3</td><td>Parkdale</td></tr>
+<tr><td>M1M1V3</td><td>R H King</td></tr>
+<tr><td>M9A3N2</td><td>Richview</td></tr>
+<tr><td>M4M2A1</td><td>Riverdale</td></tr>
+<tr><td>M4W1J4</td><td>Rosedale Heights-Art</td></tr>
+<tr><td>M6S4A3</td><td>Runnymede</td></tr>
+<tr><td>M9C1Y5</td><td>Silverthorn</td></tr>
+<tr><td>M1W1H8</td><td>Sir John A Macdonald</td></tr>
+<tr><td>M1C2C6</td><td>Sir Oliver Mowat </td></tr>
+<tr><td>M1E1P5</td><td>Sir Wilfrid Laurier</td></tr>
+<tr><td>M1T2M5</td><td>Stephen Leacock</td></tr>
+<tr><td>M9W2T4</td><td>Thistletown</td></tr>
+<tr><td>M6P3J7</td><td>Ursula Franklin</td></tr>
+<tr><td>M3A2V1</td><td>Victoria Park</td></tr>
+<tr><td>M1E3G3</td><td>West Hill</td></tr>
+<tr><td>M9V3S3</td><td>West Humber</td></tr>
+<tr><td>M6P3E3</td><td>Western</td></tr>
+<tr><td>M9N2Y9</td><td>Weston</td></tr>
+<tr><td>M3N1W7</td><td>Westview Centennial</td></tr>
+<tr><td>M1R2H7</td><td>Wexford</td></tr>
+<tr><td>M3H5R2</td><td>William Lyon Mackenzie</td></tr>
+<tr><td>M1P2P7</td><td>Winston Churchill</td></tr>
+<tr><td>M1G3M3</td><td>Woburn</td></tr>
+<tr><td>M9P1N8</td><td>York Memorial</td></tr>
+<tr><td>M8Y 2T3</td><td>Bishop Allen</td></tr>
+<tr><td>M6P 1A3</td><td>Bishop Marrocco/Thomas Merton</td></tr>
+<tr><td>M1M3X4</td><td> Cardinal Newman</td></tr>
+<tr><td>M2M 3Y6</td><td>Brebeuf</td></tr>
+<tr><td>M9M 3B2</td><td>St Basil The Great</td></tr>
+<tr><td>M2N 3C8</td><td>Cardinal Carter-Arts</td></tr>
+<tr><td>M6L 1M8</td><td>Chaminade College</td></tr>
+<tr><td>M6B 2P9</td><td>Dante Alighieri</td></tr>
+<tr><td>M9V 3S4</td><td>Father Henry Carr</td></tr>
+<tr><td>M8V4B7</td><td>Father John Redmond</td></tr>
+<tr><td>M1S 4G2</td><td>Francis Libermann</td></tr>
+<tr><td>M3J 3G3</td><td>James Cardinal McGuigan</td></tr>
+<tr><td>M1K 4G4</td><td>Jean Vanier</td></tr>
+<tr><td>M1E 4P6</td><td>St John Paul II</td></tr>
+<tr><td>M5S 1C4</td><td>St Joseph</td></tr>
+<tr><td>M2M 3S4</td><td>St Joseph Morrow Park</td></tr>
+<tr><td>M5M 3E2</td><td>Loretto</td></tr>
+<tr><td>M3K 1V5</td><td>Madonna</td></tr>
+<tr><td>M5N 3B1</td><td>Marshall McLuhan</td></tr>
+<tr><td>M1V 3S8</td><td>Mary Ward</td></tr>
+<tr><td>M9C 3Z7</td><td>Michael Power/St Joseph</td></tr>
+<tr><td>M9W 4K9</td><td>Monsignor Percy Johnson</td></tr>
+<tr><td>M6H 1J6</td><td>St Mary</td></tr>
+<tr><td>M5B 1X2</td><td>St Michael's Choir</td></tr>
+<tr><td>M1B 3G5</td><td>Blessed St Mother Teresa</td></tr>
+<tr><td>M4E 3S2</td><td>Neil McNeil</td></tr>
+<tr><td>M4E 3E1</td><td>Notre Dame</td></tr>
+<tr><td>M6N 2H4</td><td>Archbishop Romero</td></tr>
+<tr><td>M4J 1G3</td><td>St Patrick </td></tr>
+<tr><td>M3A 3R2</td><td>Senator O`Connor</td></tr>
+</table>
 </html>
